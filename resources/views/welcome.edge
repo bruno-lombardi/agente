@@ -1,0 +1,25 @@
+@layout("layouts/app")
+
+@section("title")
+  Bem vindo ao Agente | Registre-se gratuitamente
+@endsection
+
+@section("content")
+
+@include("partials/navbar-guest")
+
+  <section id="welcome" class="p-t-80">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h1>Bem vindo ao Agente</h1>
+          <p>No agente, você pode divulgar sua carreira esportiva, ou encontrar atletas de várias modalidades. Começe agora, é grátis!</p>
+          <a href="/registrar" class="btn btn-primary">Criar minha conta</a>
+        </div>
+        <div class="col-lg-6">
+          <img src="/images/atletas-pagina-inicial.png" alt="Atletas de várias modalidades" style="max-width: 100%" >
+        </div>
+      </div>
+    </div>
+  </section>
+@endsection

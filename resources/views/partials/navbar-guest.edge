@@ -1,0 +1,50 @@
+<div class="header">
+    <nav class="navbar top-navbar navbar-expand-md navbar-light">
+        <!-- Logo -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ route('home') }}">
+                <!-- Logo icon -->
+                Agente
+            </a>
+        </div>
+        <!-- End Logo -->
+        <div class="navbar-collapse">
+            <!-- toggle and nav items -->
+            <ul class="navbar-nav mr-auto mt-md-0">
+
+                <!-- End Messages -->
+            </ul>
+            <!-- User profile and search -->
+            <ul class="navbar-nav my-lg-0">
+                <!-- Comment -->
+                @loggedIn
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://randomuser.me/api/portraits/men/10.jpg" alt="user" class="profile-pic"></a>
+                        <div class="dropdown-menu dropdown-menu-right animated zoomIn">
+                            <ul class="dropdown-user">
+                                <li><a href="{{ route('userProfile') }}"><i class="fa fa-user"></i> Perfil</a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> Mensagens</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="fa fa-cog"></i> Configurações</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="fa fa-power-off"></i> Sair</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">
+                        Entrar
+                        </a>                 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('signup') }}">
+                        Registrar-se
+                        </a>                 
+                    </li>
+                @endloggedIn
+                
+            </ul>
+        </div>
+    </nav>
+</div>
