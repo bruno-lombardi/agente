@@ -1,6 +1,6 @@
-# Adonis fullstack application
+# Agente baseado em AdonisJS
 
-This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
+Agente baseado na estrutura MVC, em NodeJS com AdonisJS. Features:
 
 1. Bodyparser
 2. Session
@@ -13,19 +13,9 @@ This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
 
 ## Setup
 
-Use the adonis command to install the blueprint
+Primeiro instale as dependências com `npm install`, depois configure o banco de dados (por padrão utiliza SQlite), no arquivo `.env` (exemplo no .`env.example`).
+Execute os migrations para criar o banco de dados com `adonis migration:run`. Inicie o servidor de desenvolvimento com:
 
 ```bash
-adonis new yardstick
-```
-
-or manually clone the repo and then run `npm install`.
-
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
+adonis serve --dev
 ```
