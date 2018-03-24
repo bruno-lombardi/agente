@@ -22,7 +22,7 @@ const providers = [
   '@adonisjs/session/providers/SessionProvider',
   '@adonisjs/auth/providers/AuthProvider',
   '@adonisjs/validator/providers/ValidatorProvider',
-  path.join(__dirname, '..', 'providers', 'GetStream/provider')
+  path.join(process.cwd(), 'providers', 'GetStream/Provider')
 ]
 
 /*
