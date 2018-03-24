@@ -18,37 +18,54 @@
 <div class="unix-login">
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-lg-4">
+            <div class="col-xl-4 col-lg-6">
                 <div class="login-content card">
-                    <div class="login-form">
-                        <h4>Registrar</h4>
+                    <div class="p-md-4">
+                        <h3 class="text-center f-w-700 mb-4">Registre-se gratuitamente</h3>
                         <form method="POST" action="{{ route('storeUser') }}">
                             {{ csrfField() }}
                             <div class="form-row">
                                 <div class="col-md-6 form-group">
                                     <label>Nome</label>
-                                    <input type="text" class="form-control" placeholder="Neymar" name="name">
+                                    <input type="text" class="form-control" placeholder="Neymar" name="name" value="{{ old('name', '')}}">
+                                    @if(hasErrorFor("name"))
+                                        <small class="animated fadeInDown text-danger">{{ getErrorFor("name")}}</small>
+                                    @endif
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label>Sobrenome</label>
-                                    <input type="text" class="form-control" placeholder="Júnior" name="lastname">
+                                    <input type="text" class="form-control" placeholder="Júnior" name="lastname" value="{{ old('lastname', '')}}">
+                                    @if(hasErrorFor("lastname"))
+                                        <small class="animated fadeInDown text-danger">{{ getErrorFor("lastname")}}</small>
+                                    @endif
                                 </div>
                             </div>
                             <div id='bday'>
-                                
+                                @if(hasErrorFor("dob"))
+                                    <small class="animated fadeInDown text-danger">{{ getErrorFor("dob")}}</small>
+                                @endif
                             </div>
 
                             <div class="form-group">
                                 <label>Endereço de email</label>
-                                <input type="email" class="form-control" placeholder="Informe um email válido" name="email">
+                                <input type="email" class="form-control" placeholder="Informe um email válido" name="email" value="{{ old('email', '')}}">
+                                @if(hasErrorFor("email"))
+                                    <small class="animated fadeInDown text-danger">{{ getErrorFor("email")}}</small>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label>Senha</label>
                                 <input type="password" class="form-control" placeholder="Insira uma senha segura" name="password">
+                                @if(hasErrorFor("password"))
+                                    <small class="animated fadeInDown text-danger">{{ getErrorFor("password")}}</small>
+                                @endif
                             </div>
                             <div class="checkbox">
                                 <label>
                                 <input type="checkbox" name="terms"> Você leu e aceitou os <a href="">termos de uso e privacidade</a>?
+                                @if(hasErrorFor("terms"))
+                                    <small class="animated fadeInDown text-danger">{{ getErrorFor("terms")}}</small>
+                                @endif
                             </label>
                             </div>
                             <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Registrar</button>

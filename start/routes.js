@@ -21,8 +21,20 @@ Route.on("/").render("welcome").as("home")
 Route.on("/registrar").render("registrar").as('signup')
 Route.on("/entrar").render("entrar").as('login')
 
-Route.post("/usuario/registrar", "UserController.store").as("storeUser")
-Route.get("/usuario/perfil", "UserController.show").as("userProfile")
+Route.get('/logout', async ({ response, auth }) => {
+    await auth.logout()
+
+    return response.redirect("/")
+}).as("logout")
+
+Route.group(() => {
+    Route.post("/registrar", "UserController.store").validator("SignUpUser").as("storeUser")
+    Route.post("/entrar", "UserController.login").validator("SignInUser").as("loginUser")
+    Route.get("/perfil", "UserController.show").as("userProfile")
+}).prefix("/usuario")
+
+
+
 
 Route.post("/todos", "TodoController.store").as("storeTodo")
 Route.post("/api/todos", "TodoController.apiStore")
